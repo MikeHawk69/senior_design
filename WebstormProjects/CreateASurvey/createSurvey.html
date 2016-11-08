@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a Survey</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<!-- Import css and js files to html -->
+<style src="createASurvey.css">@import "createSurvey.css";</style>
+<script src="createSurvey.js"></script>
+
+<body>
+<div style="margin:0;padding:0;background-color:lightgrey;height:1000px">
+    <!-- navigation bar -->
+    <div class="nav">
+        <a href="#" class="button" style="color:white">Home</a>
+        <a href="#" class="button" style="color:white">Products</a>
+        <a href="#" class="button" style="color:white">Surveys</a>
+        <a href="#" class="button" style="color:white">Data</a>
+        <a href="#" class="button" style="color:white">Logout</a>
+    </div>
+
+    <div>
+        <!-- left side buttons (AKA:toolbar) -->
+        <div class="toolbar">
+            <button id="ratButton" class="tools" onclick="show('rating', 'ratButton')">Rating</button>
+            &nbsp
+            <button id="txtButton" class="tools" onclick="show('text', 'txtButton')">Text Box</button>
+            &nbsp
+            <button id="chkButton" class="tools" onclick="show('chkBox', 'chkButton')">Check Box</button>
+            &nbsp
+            <button id="rdoButton" class="tools" onclick="show('radio', 'rdoButton')">Radio Button</button>
+            &nbsp
+            <button id="ddButton" class="tools" onclick="show('dropDown', 'ddButton')">Dropdown Menu</button>
+        </div>
+        <!-- main content (the survey being created)-->
+        <div class="mainContent" align="center">
+            <div class="preview">
+                <form id="proHead">
+                    Title: <input align="center" type="text" style="color:navy;width:50%"> </input>
+                    <div class="productHeader" align="center">
+                        <h4 style="padding:5px;margin:0"> Product Information </h4>
+                        <div style="margin-right:10px;background-color:lightcoral;height:100px;width:20%;float:left">
+                            image goes here1
+                        </div>
+                        <div style="background-color:darkred;width:75%;height:100px;float:left;padding-left:10px;padding-right:10px"
+                             align="left">
+                            <form align="left" style="padding:10px;margin:0">
+                                Name:<br/><input style="width:100%;font-family:Georgia" type="text" value="Enter product name here."/><br/>
+                                Description: <br/> <textarea style="width:100%;resize:none;font-family:Georgia"> Enter Description here. </textarea>
+                            </form>
+                        </div>
+                        <p style="margin:5px;padding:0">Upload a picture of your product</p>
+                        <input type="file" accept="image/*"/>
+                        <button type="button">Upload</button>
+                    </div>
+                    <form id="survey" align="left">
+                    </form>
+                </form>
+                <button class="plusButton"><b style="font-size:200%">+</b></button>
+            </div>
+        </div>
+        <!-- right side option panels (default hidden)-->
+        <div class="options">
+            <div class="opts" id="rating">
+                <form id="ratForm">
+                    <h3 align="center">Rating</h3>
+                    Question:
+                    <input id="ratQuestion" type="text" value="Enter Question Here" style="width:100%"/>
+                    Minimum value:
+                    <input id="ratMin" type="number" value="0" style="width:100%"/>
+                    Maximum Value:
+                    <input id="ratMax" type="number" value="0" style="width:100%"/>
+                    <button type="button" class="optButton" onclick="addQuestion('ratForm')">Add</button>
+                    <button type="reset" class="optButton">Reset</button>
+                    <button type="button" onclick="cancelAdd('rating','ratButton')" class="optButton">Cancel</button>
+                </form>
+            </div>
+            <div class="opts" id="text">
+                <form id="txtForm">
+                    <h3 align="center">Text Box</h3>
+                    Question:
+                    <input id="txtQuestion" type="text" value="Enter Question Here" style="width:100%"/>
+                    Maximum characters:
+                    <input id="txtMax" type="number" value="0" style="width:100%"/>
+                    <button type="button" onclick="addQuestion('txtForm')" class="optButton">Add</button>
+                    <button type="reset" class="optButton">Reset</button>
+                    <button type="button" onclick="cancelAdd('text','txtButton')" class="optButton">Cancel</button>
+                </form>
+            </div>
+            <div class="opts" id="chkBox">
+                <form id="chkForm">
+                    <h3 align="center">Check Box</h3>
+                    Question:
+                    <input id="chkQuestion" type="text" value="Enter Question here" style="width:100%"/>
+                    Add or subtract options to check list.
+                    <button type="button" onclick="addOption('chkForm')" class="optButton" style="width:49%;height:30px">+</button>
+                    <button type="button" onclick="deleteOption('chkForm')" class="optButton" style="width:49%;height:30px">-</button>
+                    <input id="ctb1" type="text" value="Option 1" style="width:100%"/>
+                    <button id="chkAdd" class="optButton" type="button" onclick="addQuestion('chkForm')">
+                        Add
+                    </button>
+                    <button type="button" onclick="resetPan('chkForm')" class="optButton">Reset</button>
+                    <button type="button" class="optButton" onclick="cancelAdd('chkBox','chkButton')">
+                        Cancel
+                    </button>
+                </form>
+            </div>
+            <div class="opts" id="radio">
+                <form id="rdoForm">
+                    <h3 align="center">Radio Button</h3>
+                    Question:
+                    <input id="rdoQuestion" type="text" value="Enter Question here" style="width:100%"/>
+                    Add or subtract options to check list.
+                    <button type="button" onclick="addOption('rdoForm')" class="optButton" style="width:49%;height:30px">+</button>
+                    <button type="button" onclick="deleteOption('rdoForm')" class="optButton" style="width:49%;height:30px">-</button>
+                    <input id="rtb1" type="text" value="Option 1" style="width:100%"/>
+                    <button id="rdoAdd" type="button" onclick="addQuestion('rdoForm')" class="optButton">
+                        Add
+                    </button>
+                    <button type="button" onclick="resetPan('rdoForm')" class="optButton">Reset</button>
+                    <button type="button" class="optButton" onclick="cancelAdd('radio','rdoButton')">
+                        Cancel
+                    </button>
+                </form>
+            </div>
+            <div class="opts" id="dropDown">
+                <form id="ddForm">
+                    <h3 align="center">Drop Down</h3>
+                    Question:
+                    <input id="ddQuestion" type="text" value="Enter Question here" style="width:100%"/>
+                    Add or subtract options to check list.
+                    <button type="button" onclick="addOption('ddForm')" class="optButton" style="width:49%;height:30px">+</button>
+                    <button type="button" onclick="deleteOption('ddForm')" class="optButton" style="width:49%;height:30px">-</button>
+                    <input id="dtb1" type="text" value="Option 1" style="width:100%"/>
+                    <button id="ddAdd" class="optButton" type="button" onclick="addQuestion('ddForm')">Add
+                    </button>
+                    <button type="button" onclick="resetPan('ddForm')" class="optButton">Reset</button>
+                    <button type="button" class="optButton" onclick="cancelAdd('dropDown','ddButton')">
+                        Cancel
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="footer"></div>
+</div>
+</body>
+</html>

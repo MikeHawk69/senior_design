@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+}
+
+div.nav {
+    background-color: black;
+    color: white;
+    margin: 0;
+    height: 50px;
+    padding: 0;
+    display: flex;
+}
+
+a.button {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    height: 30px;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: grey;
+}
+
+div.toolbar {
+    float: left;
+    width: 15%;
+    height: 900px;
+    background-color: grey;
+    padding: 2.5%;
+}
+
+div.mainContent {
+    float: left;
+    width: 60%;
+    height: 900px;
+    background-color: white;
+}
+
+div.options {
+    float: left;
+    width: 20%;
+    height: 900px;
+    background-color: grey;
+}
+
+div.footer {
+    background-color: black;
+    color: white;
+    height: 50px;
+}
+
+div.opts {
+    background-color: lightgrey;
+    padding: 10px;
+    display: none;
+}
+
+div.opts.show {
+    display: block;
+}
+
+button.plusButton {
+    background-color:lightgreen;
+    height: 40px;
+    width:60%;
+    border-radius:15px;
+    border:none;
+}
+
+button.tools {
+    background-color: black;
+    color: white;
+    height: 50px;
+    width: 100%;
+    border:none;
+}
+
+button.tools.active, button.tools:hover {
+    background-color: lightgrey;
+}
+
+.preview {
+    padding: 15px;
+    margin: 15px;
+    background-color: lightblue;
+    color: black;
+}
+
+button.optButton{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width:32%;
+    height:40px;
+    background-color:black;
+    color:white;
+    border:none;
+}
+
+div.productHeader {
+    padding: 10px;
+    margin: 10px;
+    background: aqua;
+    overflow: hidden;
+    border-bottom:dashed 5px;
+}
+
+div.question{
+<!-- can use this to add style to the questions -->
+}
