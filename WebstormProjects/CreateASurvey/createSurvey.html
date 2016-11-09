@@ -3,149 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <title>Create a Survey</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style src="createSurvey.css">@import "createSurvey.css";</style>
+    <script src="createSurvey.js"></script>
+
 </head>
-
-<!-- Import css and js files to html -->
-<style src="createASurvey.css">@import "createSurvey.css";</style>
-<script src="createSurvey.js"></script>
-
 <body>
-<div style="margin:0;padding:0;background-color:lightgrey;height:1000px">
-    <!-- navigation bar -->
-    <div class="nav">
-        <a href="#" class="button" style="color:white">Home</a>
-        <a href="#" class="button" style="color:white">Products</a>
-        <a href="#" class="button" style="color:white">Surveys</a>
-        <a href="#" class="button" style="color:white">Data</a>
-        <a href="#" class="button" style="color:white">Logout</a>
+
+<!-- TODO: set logout and settings to right side-->
+<nav class="directory">
+    <div>
+        <a href="#" class="nav">Home</a>
+        <a href="#" class="nav">Products</a>
+        <a href="#" class="nav">Surveys</a>
+        <a href="#" class="nav">Data</a>
+        <a href="#" class="nav">Settings</a>
+        <a href="#" class="nav">Logout</a>
+    </div>
+</nav>
+
+<div class="toolbar">
+    <h3 style="text-align:center;color:white">TOOLBAR</h3>
+    <div class="slider" name="productInfo">Product Information</div>
+    <div class="toolkit" id="productInfo">
+        <div class="tool"> Picture</div> <!--todo-->
+        <div class="tool"> Name</div> <!--todo-->
+        <div class="tool"> Description</div> <!--todo-->
     </div>
 
-    <div>
-        <!-- left side buttons (AKA:toolbar) -->
-        <div class="toolbar">
-            <button id="ratButton" class="tools" onclick="show('rating', 'ratButton')">Rating</button>
-            &nbsp
-            <button id="txtButton" class="tools" onclick="show('text', 'txtButton')">Text Box</button>
-            &nbsp
-            <button id="chkButton" class="tools" onclick="show('chkBox', 'chkButton')">Check Box</button>
-            &nbsp
-            <button id="rdoButton" class="tools" onclick="show('radio', 'rdoButton')">Radio Button</button>
-            &nbsp
-            <button id="ddButton" class="tools" onclick="show('dropDown', 'ddButton')">Dropdown Menu</button>
+    <div class="slider" name="demographics">Demographics</div>
+    <div class="toolkit" id="demographics">
+        <div class="tool"> Gender</div> <!--todo-->
+        <div class="tool"> Race</div> <!--todo-->
+        <div class="tool"> Age</div> <!--todo-->
+        <div class="tool"> Location</div> <!--todo-->
+        <div class="tool"> Name</div> <!--todo-->
+    </div>
+
+    <div class="slider" name="layout">Layout</div>
+    <div class="toolkit" id="layout">
+        <div class="tool"> Columns</div> <!--todo-->
+        <div class="tool"> Colors</div> <!--todo-->
+        <div class="tool"> Pages</div> <!--todo-->
+    </div>
+
+    <div class="slider" name="question">Question</div>
+    <div class="toolkit" id="question">
+        <div class="tool" name="sTextOption"> Single Text</div>
+        <div class="toolOptions" id="sTextOption">
+            <form id="stForm" style="color:white">
+                <p class="optionHeading">Single Text</p>
+                Question:
+                <input id="stQuestion" style="width:98%" type="text" value="Input question here."/>
+                <div style="height:5px;width:100%"></div>
+                <input type="button" onclick="addToSurvey('stForm')" value="Add" class="optionButton"/>
+                <input type="reset" class="optionButton"/>
+            </form>
         </div>
-        <!-- main content (the survey being created)-->
-        <div class="mainContent" align="center">
-            <div class="preview">
-                <form id="proHead">
-                    Title: <input align="center" type="text" style="color:navy;width:50%"> </input>
-                    <div class="productHeader" align="center">
-                        <h4 style="padding:5px;margin:0"> Product Information </h4>
-                        <div style="margin-right:10px;background-color:lightcoral;height:100px;width:20%;float:left">
-                            image goes here1
-                        </div>
-                        <div style="background-color:darkred;width:75%;height:100px;float:left;padding-left:10px;padding-right:10px"
-                             align="left">
-                            <form align="left" style="padding:10px;margin:0">
-                                Name:<br/><input style="width:100%;font-family:Georgia" type="text" value="Enter product name here."/><br/>
-                                Description: <br/> <textarea style="width:100%;resize:none;font-family:Georgia"> Enter Description here. </textarea>
-                            </form>
-                        </div>
-                        <p style="margin:5px;padding:0">Upload a picture of your product</p>
-                        <input type="file" accept="image/*"/>
-                        <button type="button">Upload</button>
-                    </div>
-                    <form id="survey" align="left">
-                    </form>
-                </form>
-                <button class="plusButton"><b style="font-size:200%">+</b></button>
-            </div>
+        <div class="tool" name="tbOption"> Text Box</div>
+        <div class="toolOptions" id="tbOption">
+            <form id="tbForm" style="color:white">
+                <p class="optionHeading">Text Box</p>
+                Question:
+                <input id="tbQuestion" style="width:98%" type="text" value="Input question here."/>
+                <div style="height:5px;width:100%"></div>
+                <input type="button" onclick="addToSurvey('tbForm')" value="Add" class="optionButton"/>
+                <input type="reset" class="optionButton"/>
+            </form>
         </div>
-        <!-- right side option panels (default hidden)-->
-        <div class="options">
-            <div class="opts" id="rating">
-                <form id="ratForm">
-                    <h3 align="center">Rating</h3>
-                    Question:
-                    <input id="ratQuestion" type="text" value="Enter Question Here" style="width:100%"/>
-                    Minimum value:
-                    <input id="ratMin" type="number" value="0" style="width:100%"/>
-                    Maximum Value:
-                    <input id="ratMax" type="number" value="0" style="width:100%"/>
-                    <button type="button" class="optButton" onclick="addQuestion('ratForm')">Add</button>
-                    <button type="reset" class="optButton">Reset</button>
-                    <button type="button" onclick="cancelAdd('rating','ratButton')" class="optButton">Cancel</button>
-                </form>
-            </div>
-            <div class="opts" id="text">
-                <form id="txtForm">
-                    <h3 align="center">Text Box</h3>
-                    Question:
-                    <input id="txtQuestion" type="text" value="Enter Question Here" style="width:100%"/>
-                    Maximum characters:
-                    <input id="txtMax" type="number" value="0" style="width:100%"/>
-                    <button type="button" onclick="addQuestion('txtForm')" class="optButton">Add</button>
-                    <button type="reset" class="optButton">Reset</button>
-                    <button type="button" onclick="cancelAdd('text','txtButton')" class="optButton">Cancel</button>
-                </form>
-            </div>
-            <div class="opts" id="chkBox">
-                <form id="chkForm">
-                    <h3 align="center">Check Box</h3>
-                    Question:
-                    <input id="chkQuestion" type="text" value="Enter Question here" style="width:100%"/>
-                    Add or subtract options to check list.
-                    <button type="button" onclick="addOption('chkForm')" class="optButton" style="width:49%;height:30px">+</button>
-                    <button type="button" onclick="deleteOption('chkForm')" class="optButton" style="width:49%;height:30px">-</button>
-                    <input id="ctb1" type="text" value="Option 1" style="width:100%"/>
-                    <button id="chkAdd" class="optButton" type="button" onclick="addQuestion('chkForm')">
-                        Add
-                    </button>
-                    <button type="button" onclick="resetPan('chkForm')" class="optButton">Reset</button>
-                    <button type="button" class="optButton" onclick="cancelAdd('chkBox','chkButton')">
-                        Cancel
-                    </button>
-                </form>
-            </div>
-            <div class="opts" id="radio">
-                <form id="rdoForm">
-                    <h3 align="center">Radio Button</h3>
-                    Question:
-                    <input id="rdoQuestion" type="text" value="Enter Question here" style="width:100%"/>
-                    Add or subtract options to check list.
-                    <button type="button" onclick="addOption('rdoForm')" class="optButton" style="width:49%;height:30px">+</button>
-                    <button type="button" onclick="deleteOption('rdoForm')" class="optButton" style="width:49%;height:30px">-</button>
-                    <input id="rtb1" type="text" value="Option 1" style="width:100%"/>
-                    <button id="rdoAdd" type="button" onclick="addQuestion('rdoForm')" class="optButton">
-                        Add
-                    </button>
-                    <button type="button" onclick="resetPan('rdoForm')" class="optButton">Reset</button>
-                    <button type="button" class="optButton" onclick="cancelAdd('radio','rdoButton')">
-                        Cancel
-                    </button>
-                </form>
-            </div>
-            <div class="opts" id="dropDown">
-                <form id="ddForm">
-                    <h3 align="center">Drop Down</h3>
-                    Question:
-                    <input id="ddQuestion" type="text" value="Enter Question here" style="width:100%"/>
-                    Add or subtract options to check list.
-                    <button type="button" onclick="addOption('ddForm')" class="optButton" style="width:49%;height:30px">+</button>
-                    <button type="button" onclick="deleteOption('ddForm')" class="optButton" style="width:49%;height:30px">-</button>
-                    <input id="dtb1" type="text" value="Option 1" style="width:100%"/>
-                    <button id="ddAdd" class="optButton" type="button" onclick="addQuestion('ddForm')">Add
-                    </button>
-                    <button type="button" onclick="resetPan('ddForm')" class="optButton">Reset</button>
-                    <button type="button" class="optButton" onclick="cancelAdd('dropDown','ddButton')">
-                        Cancel
-                    </button>
-                </form>
-            </div>
+        <div class="tool" name="radioOption"> Select One</div>
+        <div class="toolOptions" id="radioOption">
+            <form id="rdoForm" style="color:white">
+                <p class="optionHeading">Select One</p>
+                Question:
+                <input id="rdoQuestion" style="width:98%" type="text" value="Input question here."/>
+                <div style="height:5px;width:100%"></div>
+                <button type="button" class="optionButton" onclick="addOption('rdoForm')">+</button>
+                <button type="button" class="optionButton" onclick="remOption('rdoForm')">-</button>
+                <div style="height:5px;width:100%"></div>
+                <input id=rtb1 style="width:98%" type="text" value="Option 1"/>
+                <div style="height:5px;width:100%"></div>
+                <input id="rdoAdd" type="button" onclick="addToSurvey('rdoForm')" value="Add" class="optionButton"/>
+                <input type="button" onclick="resetPan('rdoForm')" class="optionButton" value="Reset"/>
+            </form>
+        </div>
+        <div class="tool" name="checkOption"> Select Multiple</div>
+        <div class="toolOptions" id="checkOption">
+            <form id="chkForm" style="color:white">
+                <p class="optionHeading">Select Multiple</p>
+                Question:
+                <input id="chkQuestion" style="width:98%" type="text" value="Input question here."/>
+                <div style="height:5px;width:100%"></div>
+                <button type="button" class="optionButton" onclick="addOption('chkForm')">+</button>
+                <button type="button" class="optionButton" onclick="remOption('chkForm')">-</button>
+                <div style="height:5px;width:100%"></div>
+                <input id=ctb1 style="width:98%" type="text" value="Option 1"/>
+                <div style="height:5px;width:100%"></div>
+                <input id="chkAdd" type="button" class="optionButton" onclick="addToSurvey('chkForm')" value="Add"/>
+                <input type="button" onclick="resetPan('chkForm')" class="optionButton" value="Reset"/>
+            </form>
+        </div>
+        <div class="tool" name="ddOption"> Dropdown Menu</div>
+        <div class="toolOptions" id="ddOption">
+            <form id="ddForm" style="color:white">
+                <p class="optionHeading">Dropdown Menu</p>
+                Question:
+                <input id="ddQuestion" style="width:98%" type="text" value="Input question here."/>
+                <div style="height:5px;width:100%"></div>
+                <button type="button" class="optionButton" onclick="addOption('ddForm')">+</button>
+                <button type="button" class="optionButton" onclick="remOption('ddForm')">-</button>
+                <div style="height:5px;width:100%"></div>
+                <input id=dtb1 style="width:98%" type="text" value="Option 1"/>
+                <div style="height:5px;width:100%"></div>
+                <input id="ddAdd" type="button" class="optionButton" onclick="addToSurvey('ddForm')" value="Add"/>
+                <input type="button" onclick="resetPan('ddForm')" class="optionButton" value="Reset"/>
+            </form>
         </div>
     </div>
-    <!-- footer -->
-    <div class="footer"></div>
+</div>
+
+<!-- TODO: Add Functionality to edit or remove questions after theyre added -->
+<div class="preview">
+    <h3 style="margin:10px;padding:0">Survey Preview</h3>
+    <form id="survey" class="survey">
+    </form>
 </div>
 </body>
 </html>

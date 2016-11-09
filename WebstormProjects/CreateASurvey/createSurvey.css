@@ -1,115 +1,118 @@
-body {
-    margin: 0;
+body{margin:0;}
+
+nav.directory{
+    background-color: Navy;
+    color:white;
+    height:32px;
+    width:100%;
+    padding-top:10px;
+    margin:0;
+    display:flex;
 }
 
-div.nav {
-    background-color: black;
-    color: white;
-    margin: 0;
-    height: 50px;
-    padding: 0;
-    display: flex;
-}
-
-a.button {
-    background-color: black;
+a.nav {
+    background-color: navy;
     color: white;
     text-align: center;
     padding-top: 15px;
     padding-right: 10px;
     padding-left: 10px;
-    padding-bottom: 5px;
-    height: 30px;
+    padding-bottom: 15px;
+    height: 50px;
     text-decoration: none;
 }
-
-a:hover {
-    background-color: grey;
+a.nav:hover {
+    background-color: steelblue;
 }
 
 div.toolbar {
     float: left;
-    width: 15%;
-    height: 900px;
-    background-color: grey;
-    padding: 2.5%;
-}
-
-div.mainContent {
-    float: left;
-    width: 60%;
-    height: 900px;
-    background-color: white;
-}
-
-div.options {
-    float: left;
     width: 20%;
     height: 900px;
-    background-color: grey;
+    background-color: blue;
+    padding-top: 20px;
 }
 
-div.footer {
-    background-color: black;
-    color: white;
-    height: 50px;
+div.preview {
+    text-align:center;
+    float:left;
+    width:80%;
+    height:900px;
+    background-color:lightblue;
+    margin:0;
 }
 
-div.opts {
-    background-color: lightgrey;
-    padding: 10px;
-    display: none;
-}
-
-div.opts.show {
-    display: block;
-}
-
-button.plusButton {
-    background-color:lightgreen;
-    height: 40px;
-    width:60%;
+form.survey {
+    background-color:white;
+    width:90%;
+    height:90%;
     border-radius:15px;
-    border:none;
+    margin:5%;
+    margin-top:0;
+    text-align:left;
+    padding:15px;
 }
 
-button.tools {
-    background-color: black;
+div.slider {
+    background-color:blue;
+    width:100%;
     color: white;
-    height: 50px;
-    width: 100%;
-    border:none;
+    text-align:center;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size:20px;
+}
+div.slider:hover{
+    background-color:steelblue;
 }
 
-button.tools.active, button.tools:hover {
-    background-color: lightgrey;
+div.toolkit{
+    display:none;
+    width:100%;
+    background-color:steelblue;
 }
 
-.preview {
-    padding: 15px;
-    margin: 15px;
-    background-color: lightblue;
-    color: black;
+div.tool{
+    height:25px;
+    width:100%;
+    text-align: center;
+    padding-top: 5px;
+}
+div.tool:hover {
+    background-color:cornflowerblue;
 }
 
-button.optButton{
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width:32%;
-    height:40px;
-    background-color:black;
+div.toolOptions {
+    display:none;
+    width:200px;
+    background-color:Green;
+    position: absolute;
+    left:20%;
+    padding:10px;
+}
+
+p.optionHeading {
+    font-size:20px;
+    text-align:center;
+    padding:0;
+    margin:0;
+    text-decoration: underline;
     color:white;
-    border:none;
 }
 
-div.productHeader {
-    padding: 10px;
-    margin: 10px;
-    background: aqua;
-    overflow: hidden;
-    border-bottom:dashed 5px;
+.optionButton{
+    width:49%;
+    border: none;
+    background-color: darkgreen;
+    color:white;
+    padding:5px;
+}
+.optionButton:hover{
+    background-color: lightgreen;
 }
 
-div.question{
-<!-- can use this to add style to the questions -->
+.question {
+    /*Place holder background-color*/
+    /*Remove before completion*/
+    background-color: aqua;
 }
