@@ -23,29 +23,125 @@
     </div>
 </nav>
 
+<!-- TODO: add functionality to add tool options -->
 <div class="toolbar">
     <h3 style="text-align:center;color:white">TOOLBAR</h3>
     <div class="slider" name="productInfo">Product Information</div>
     <div class="toolkit" id="productInfo">
-        <div class="tool"> Picture</div> <!--todo-->
-        <div class="tool"> Name</div> <!--todo-->
-        <div class="tool"> Description</div> <!--todo-->
+        <div class="tool" name="productPic"> Picture</div>
+        <div class="toolOptions" id="productPic">
+            <form style="text-align: center">
+                <p class="optionHeading">Product Picture</p>
+                <div class="horSpace"></div>
+                <input type="file" accept="image/*" style="background-color:darkgreen;color:white;width:98%"></input>
+                <div class="horSpace"></div>
+                <input type="submit" class="optionButton"></input>
+            </form>
+        </div>
+        <div class="tool" name="productName"> Name</div>
+        <div class="toolOptions" id="productName">
+            <form style="text-align:center">
+                <p class="optionHeading">Product Name</p>
+                <p style="color:white;width:100%;float:left">Name:
+                    <input style="width:73%" value="Enter name here."></input>
+                </p>
+                <button type="button" class="optionButton">Add</button>
+            </form>
+        </div>
+        <div class="tool" name="productDesc"> Description</div>
+        <div class="toolOptions" id="productDesc" style="width:300px">
+            <form style="text-align:center">
+                <p class="optionHeading">Product Description</p>
+                <p style="color:white;width:100%">Description:
+                    <textarea style="width:98%;height:64px;resize:none" value="Enter description here."></textarea>
+                </p>
+                <button type="button" class="optionButton">Add</button>
+            </form>
+        </div>
     </div>
 
     <div class="slider" name="demographics">Demographics</div>
     <div class="toolkit" id="demographics">
-        <div class="tool"> Gender</div> <!--todo-->
-        <div class="tool"> Race</div> <!--todo-->
-        <div class="tool"> Age</div> <!--todo-->
-        <div class="tool"> Location</div> <!--todo-->
-        <div class="tool"> Name</div> <!--todo-->
+        <div class="tool" name="demGender"> Gender</div>
+        <div class="toolOptions" id="demGender">
+            <form style="text-align: center">
+                <p class="optionHeading">Gender</p>
+                <p style="color:white">Would you like to recieve data about your users' gender?</p>
+                <button type="button" class="optionButton">Yes</button>
+            </form>
+        </div>
+        <div class="tool" name="demRace"> Race</div>
+        <div class="toolOptions" id="demRace">
+            <form style="text-align: center">
+                <p class="optionHeading">Race</p>
+                <p style="color:white">Would you like to recieve data about your users' race?</p>
+                <button type="button" class="optionButton">Yes</button>
+            </form>
+        </div>
+        <div class="tool" name="demAge"> Age</div>
+        <div class="toolOptions" id="demAge">
+            <form style="text-align: center">
+                <p class="optionHeading">Age</p>
+                <div class="horSpace"></div>
+                <input type="radio" name="agedemo">Number</input>
+                <input type="radio" name="agedemo">Date</input>
+                <div class="horSpace"></div>
+                <button type="button" class="optionButton">Add</button>
+            </form>
+        </div>
+        <div class="tool" name="demLocation">User Location</div>
+        <div class="toolOptions" id="demLocation">
+            <form style="text-align: center">
+                <p class="optionHeading">Location</p>
+                <p style="color:white">Would you like to recieve data about your users' location?</p>
+                <input type="radio" name="agedemo">Yes</input>
+                <input type="radio" name="agedemo">No</input>
+            </form>
+        </div>
+        <div class="tool" name="demName"> Name</div>
+        <div class="toolOptions" id="demName">
+            <form style="text-align: center">
+                <p class="optionHeading">Name</p>
+                <p style="color:white">Would you like to recieve data about your users' location?</p>
+                <button type="button" class="optionButton">Yes</button>
+            </form>
+        </div>
     </div>
 
     <div class="slider" name="layout">Layout</div>
     <div class="toolkit" id="layout">
-        <div class="tool"> Columns</div> <!--todo-->
-        <div class="tool"> Colors</div> <!--todo-->
-        <div class="tool"> Pages</div> <!--todo-->
+        <div class="tool" name="layoutColumns"> Columns</div>
+        <div class="toolOptions" id="layoutColumns">
+            <form style="text-align:center">
+                <p class="optionHeading">Columns</p>
+                <div class="horSpace"></div>
+                <p style="color:white;width:55%;float:left">How many columns do you want?</p>
+                <input style="width:35%;margin-top:15%" type="number" min="1" max="3" value="0" step="1"></input>
+                <div class="horSpace"></div>
+                <button class="optionButton">Add</button>
+            </form>
+        </div>
+        <div class="tool" name="layoutColors"> Colors</div> <!--todo-->
+        <div class="toolOptions" id="layoutColors">
+            <form style="text-align: center">
+                <p class="optionHeading">Colors</p>
+                <div class="horSpace"></div>
+                <p style="color:white">click to change color</p>
+                <input type="color" draggable=true style="background-color:green;height:30px;width:70%;border:none"/>
+                <div class="horSpace"></div>
+                <p style="color:white">Drag to element to change color</p>
+                <!-- TODO: add dragging functionality-->
+            </form>
+        </div>
+        <div class="tool" name="layoutPages"> Pages</div> <!--todo-->
+        <div class="toolOptions" id="layoutPages">
+            <form>
+                <p class="optionHeading">Pages</p>
+                <p style="color:white;background-color:darkgreen;padding:5px" draggable="true">Drag this sentence to
+                    insert a page break.</p>
+                <!--TODO:ADD PAGEBREAK FUNCTIONALITY-->
+            </form>
+        </div>
     </div>
 
     <div class="slider" name="question">Question</div>
@@ -56,7 +152,7 @@
                 <p class="optionHeading">Single Text</p>
                 Question:
                 <input id="stQuestion" style="width:98%" type="text" value="Input question here."/>
-                <div style="height:5px;width:100%"></div>
+                <div class="horSpace"></div>
                 <input type="button" onclick="addToSurvey('stForm')" value="Add" class="optionButton"/>
                 <input type="reset" class="optionButton"/>
             </form>
@@ -67,7 +163,7 @@
                 <p class="optionHeading">Text Box</p>
                 Question:
                 <input id="tbQuestion" style="width:98%" type="text" value="Input question here."/>
-                <div style="height:5px;width:100%"></div>
+                <div class="horSpace"></div>
                 <input type="button" onclick="addToSurvey('tbForm')" value="Add" class="optionButton"/>
                 <input type="reset" class="optionButton"/>
             </form>
@@ -78,12 +174,12 @@
                 <p class="optionHeading">Select One</p>
                 Question:
                 <input id="rdoQuestion" style="width:98%" type="text" value="Input question here."/>
-                <div style="height:5px;width:100%"></div>
+                <div class="horSpace"></div>
                 <button type="button" class="optionButton" onclick="addOption('rdoForm')">+</button>
                 <button type="button" class="optionButton" onclick="remOption('rdoForm')">-</button>
-                <div style="height:5px;width:100%"></div>
+                <div class="horSpace"></div>
                 <input id=rtb1 style="width:98%" type="text" value="Option 1"/>
-                <div style="height:5px;width:100%"></div>
+                <div class="horSpace"></div>
                 <input id="rdoAdd" type="button" onclick="addToSurvey('rdoForm')" value="Add" class="optionButton"/>
                 <input type="button" onclick="resetPan('rdoForm')" class="optionButton" value="Reset"/>
             </form>
@@ -94,12 +190,12 @@
                 <p class="optionHeading">Select Multiple</p>
                 Question:
                 <input id="chkQuestion" style="width:98%" type="text" value="Input question here."/>
-                <div style="height:5px;width:100%"></div>
+                <div class="horSpace"></div>
                 <button type="button" class="optionButton" onclick="addOption('chkForm')">+</button>
                 <button type="button" class="optionButton" onclick="remOption('chkForm')">-</button>
-                <div style="height:5px;width:100%"></div>
+                <div class="horSpace"></div>
                 <input id=ctb1 style="width:98%" type="text" value="Option 1"/>
-                <div style="height:5px;width:100%"></div>
+                <div class="horSpace"></div>
                 <input id="chkAdd" type="button" class="optionButton" onclick="addToSurvey('chkForm')" value="Add"/>
                 <input type="button" onclick="resetPan('chkForm')" class="optionButton" value="Reset"/>
             </form>
@@ -107,15 +203,16 @@
         <div class="tool" name="ddOption"> Dropdown Menu</div>
         <div class="toolOptions" id="ddOption">
             <form id="ddForm" style="color:white">
+                <!--TODO: change dropdown addition stuff-->
                 <p class="optionHeading">Dropdown Menu</p>
                 Question:
                 <input id="ddQuestion" style="width:98%" type="text" value="Input question here."/>
-                <div style="height:5px;width:100%"></div>
+                <div class="horSpace"></div>
                 <button type="button" class="optionButton" onclick="addOption('ddForm')">+</button>
                 <button type="button" class="optionButton" onclick="remOption('ddForm')">-</button>
-                <div style="height:5px;width:100%"></div>
+                <div class="horSpace"></div>
                 <input id=dtb1 style="width:98%" type="text" value="Option 1"/>
-                <div style="height:5px;width:100%"></div>
+                <div class="horSpace"></div>
                 <input id="ddAdd" type="button" class="optionButton" onclick="addToSurvey('ddForm')" value="Add"/>
                 <input type="button" onclick="resetPan('ddForm')" class="optionButton" value="Reset"/>
             </form>

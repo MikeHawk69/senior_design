@@ -1,4 +1,12 @@
 body{margin:0;}
+div.horSpace {
+    height:5px;
+    width:100%;
+}
+div.verSpace {
+    width:5px;
+    height:100%;
+}
 
 nav.directory{
     background-color: Navy;
@@ -89,6 +97,18 @@ div.toolOptions {
     position: absolute;
     left:20%;
     padding:10px;
+    border-radius:15px;
+    margin-top:-50px;
+}
+.toolOptions::after{
+    content:"";
+    position:absolute;
+    top:20px;
+    left:-20px;
+    margin-left: -10px;
+    border-width: 15px;
+    border-style: solid;
+    border-color: transparent green transparent transparent;
 }
 
 p.optionHeading {
