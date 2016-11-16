@@ -16,7 +16,7 @@ var questionNumber = 1;
  */
 $(document).ready(function () {
     $(".slider").click(function () {
-        if(activeToolOption != ""){
+        if (activeToolOption != "") {
             $("#" + activeToolOption).toggle();
             activeToolOption = "";
         }
@@ -38,14 +38,14 @@ $(document).ready(function () {
  *  if a window is already open, close it and open new window and change active window
  *  if tool is clicked again, closw window and reset active window
  */
-$(document).ready(function(){
-    $(".tool").click(function(){
+$(document).ready(function () {
+    $(".tool").click(function () {
         var name = $(this).attr("name");
-        if(activeToolOption == name){
+        if (activeToolOption == name) {
             $("#" + name).toggle();
             activeToolOption = "";
         }
-        else{
+        else {
             if (activeToolOption != "") $("#" + activeToolOption).toggle();
             $("#" + name).toggle();
             activeToolOption = name;
@@ -122,7 +122,7 @@ function addOption(panName) {
         case "ddForm" :
             if (dNum != 11) {
                 $('#ddAdd').before('<input type=text style="width:98%" class="input" id="dtb' + dNum +
-                    '" value="Option ' + dNum + '" /> <div  id= "dSpace' +dNum + '" style="height:5px;width:100%"></div>');
+                    '" value="Option ' + dNum + '" /> <div  id= "dSpace' + dNum + '" style="height:5px;width:100%"></div>');
                 dNum++;
             }
             break;
@@ -130,7 +130,7 @@ function addOption(panName) {
         case "rdoForm" :
             if (rNum != 11) {
                 $('#rdoAdd').before('<input type=text style="width:98%" class="input" id="rtb' + rNum +
-                    '" value="Option ' + rNum + '" /> <div id= "rSpace' +rNum + '" style="height:5px;width:100%"></div>');
+                    '" value="Option ' + rNum + '" /> <div id= "rSpace' + rNum + '" style="height:5px;width:100%"></div>');
                 rNum++;
             }
             break;
@@ -138,12 +138,21 @@ function addOption(panName) {
         case "chkForm" :
             if (cNum != 11) {
                 $('#chkAdd').before('<input type=text style="width:98%" class="input" id="ctb' + cNum +
-                    '" value="Option ' + cNum + '" /> <div id= "cSpace' +cNum + '" style="height:5px;width:100%"></div>');
+                    '" value="Option ' + cNum + '" /> <div id= "cSpace' + cNum + '" style="height:5px;width:100%"></div>');
                 cNum++;
             }
             break;
     }
 }
+$(document).ready(function () {
+    $("#headerButton").click(function () {
+        $(this).toggle();
+        if($("#proInfoRadio").val() == "yes");
+        //$("#surveyHeader").toggle();
+        if($("#proInfoName").val() != ""); //change name;
+        if($("#proInfoDesc").val() != ""); //change desc;
+    });
+});
 
 /** addQuestion adds questions to the created survey form.
  * Depending on the option added, different inputs are available

@@ -28,84 +28,37 @@
     <h3 style="text-align:center;color:white">TOOLBAR</h3>
     <div class="slider" name="productInfo">Product Information</div>
     <div class="toolkit" id="productInfo">
-        <div class="tool" name="productPic"> Picture</div>
-        <div class="toolOptions" id="productPic">
-            <form style="text-align: center">
-                <p class="optionHeading">Product Picture</p>
-                <div class="horSpace"></div>
-                <input type="file" accept="image/*" style="background-color:darkgreen;color:white;width:98%"> </input>
-                <div class="horSpace"></div>
-                <input type="submit" class="optionButton"> </input>
-            </form>
-        </div>
-        <div class="tool" name="productName"> Name</div>
-        <div class="toolOptions" id="productName">
-            <form style="text-align:center">
-                <p class="optionHeading">Product Name</p>
-                <p style="color:white;width:100%;float:left">Name:
-                    <input style="width:73%" value="Enter name here."> </input>
-                </p>
-                <button type="button" class="optionButton">Add</button>
-            </form>
-        </div>
-        <div class="tool" name="productDesc"> Description</div>
-        <div class="toolOptions" id="productDesc" style="width:300px">
-            <form style="text-align:center">
-                <p class="optionHeading">Product Description</p>
-                <p style="color:white;width:100%">Description:
-                    <textarea style="width:98%;height:64px;resize:none" value="Enter description here."> </textarea>
-                </p>
-                <button type="button" class="optionButton">Add</button>
-            </form>
-        </div>
+        <form style="text-align: center;padding:10px" id="headerForm">
+            <p> Do you wish to include information about your product?
+            <input name="proInfoRadio" type="radio">yes</input>
+            <input name="proInfoRadio" type="radio" checked="checked">no</input></p>
+            <p> Name: <input type="text" style="width:70%" placeholder="Product Name Here"/></p>
+            <p>Picture: <input type="file" accept="image/*" style="width:70%"/></p>
+            <p>Description: <textarea style="width:90%;height:48px;resize:none" placeholder="Product Description Here"></textarea></p>
+            <button id="headerButton" type="button" class = "optionButton">Apply</button>
+        </form>
     </div>
 
     <div class="slider" name="demographics">Demographics</div>
     <div class="toolkit" id="demographics">
-        <div class="tool" name="demGender"> Gender</div>
-        <div class="toolOptions" id="demGender">
-            <form style="text-align: center">
-                <p class="optionHeading">Gender</p>
-                <p style="color:white">Would you like to recieve data about your users' gender?</p>
-                <button type="button" class="optionButton">Yes</button>
-            </form>
-        </div>
-        <div class="tool" name="demRace"> Race</div>
-        <div class="toolOptions" id="demRace">
-            <form style="text-align: center">
-                <p class="optionHeading">Race</p>
-                <p style="color:white">Would you like to recieve data about your users' race?</p>
-                <button type="button" class="optionButton">Yes</button>
-            </form>
-        </div>
-        <div class="tool" name="demAge"> Age</div>
-        <div class="toolOptions" id="demAge">
-            <form style="text-align: center">
-                <p class="optionHeading">Age</p>
-                <div class="horSpace"></div>
-                <input type="radio" name="agedemo">Number</input>
-                <input type="radio" name="agedemo">Date</input>
-                <div class="horSpace"></div>
-                <button type="button" class="optionButton">Add</button>
-            </form>
-        </div>
-        <div class="tool" name="demLocation">User Location</div>
-        <div class="toolOptions" id="demLocation">
-            <form style="text-align: center">
-                <p class="optionHeading">Location</p>
-                <p style="color:white">Would you like to recieve data about your users' location?</p>
-                <input type="radio" name="agedemo">Yes</input>
-                <input type="radio" name="agedemo">No</input>
-            </form>
-        </div>
-        <div class="tool" name="demName"> Name</div>
-        <div class="toolOptions" id="demName">
-            <form style="text-align: center">
-                <p class="optionHeading">Name</p>
-                <p style="color:white">Would you like to recieve data about your users' location?</p>
-                <button type="button" class="optionButton">Yes</button>
-            </form>
-        </div>
+        <form style="text-align: center;margin:0;padding:10px" id="DemoForm">
+            <p> Do you wish to inquire about the customer's age?
+                <input name="productInfo" type="radio">yes</input>
+                <input name="productInfo" type="radio" checked="checked">no</input></p>
+            <p> Do you wish to inquire about the customer's gender?
+                <input name="productInfo" type="radio">yes</input>
+                <input name="productInfo" type="radio" checked="checked">no</input></p>
+            <p> Do you wish to inquire about the customer's ethnicity?
+                <input name="productInfo" type="radio">yes</input>
+                <input name="productInfo" type="radio" checked="checked">no</input></p>
+            <p> Do you wish to inquire about the customer's religion?
+                <input name="productInfo" type="radio">yes</input>
+                <input name="productInfo" type="radio" checked="checked">no</input></p>
+            <p> Do you wish to inquire about the customer's location?
+                <input name="productInfo" type="radio">yes</input>
+                <input name="productInfo" type="radio" checked="checked">no</input></p>
+            <button type="button" class = "optionButton" name="">Apply</button>
+        </form>
     </div>
 
     <div class="slider" name="layout">Layout</div>
