@@ -9,6 +9,8 @@ var cNum = 2;
 var dNum = 2;
 var questionNumber = 1;
 
+
+
 /** TOOLBAR SLIDER FUNCTION
  *  when document is ready, slide options on click and set active to open slider
  *  if a slider is already open, close it and set active slider to new slider
@@ -144,6 +146,7 @@ function addOption(panName) {
             break;
     }
 }
+
 $(document).ready(function () {
     $("#headerButton").click(function () {
         $(this).toggle();
@@ -158,51 +161,87 @@ $(document).ready(function () {
  * Depending on the option added, different inputs are available
  * @param panName : id of the panel used to add the question
  */
-function addToSurvey(panName) {
+function addToSurvey(panName, divName) {
+    var i;
     switch (panName) {
         case "stForm":
             $('#survey').append('<div class="question" id="q' + questionNumber + '"></div>');
-            $('#q' + questionNumber).append('<p>Question ' + questionNumber + ': ' + ($("#stQuestion").val()) + '</p>');
+            $('#q' + questionNumber).append('<button style="position:absolute;right:5%;border:none;background-color:transparent"' +
+                ' onclick="openOptions(questionNumber , "s" )"><i id="q'+questionNumber+'opts" class="fa fa-cog" ' +
+                'style="color:green;font-size: 20px"></i></button>');
+            $('#q' + questionNumber).append('<p style="text-align:left">Question ' + questionNumber + ': ' + ($("#stQuestion").val()) + '</p>');
             $('#q' + questionNumber).append(
                 '<input id="q' + questionNumber + '" type="text" value="Enter answer Here"/>');
-            questionNumber++;
             break;
         case "tbForm":
             $('#survey').append('<div class="question" id="q' + questionNumber + '"></div>');
-            $('#q' + questionNumber).append('<p>Question ' + questionNumber + ': ' + ($("#tbQuestion").val()) + '</p>');
-            $('#q' + questionNumber).append('<textarea id="q' + questionNumber + '" value="Enter answer here" style="resize:none;width:100%"/>');
-            questionNumber++;
+            $('#q' + questionNumber).append('<button style="position:absolute;right:5%;border:none;background-color:transparent"' +
+                ' onclick="openOptions(questionNumber, "t")"><i id="q'+questionNumber+'opts" class="fa fa-cog" ' +
+                'style="color:green;font-size: 20px"></i></button>');
+            $('#q' + questionNumber).append('<p style="text-align:left">Question ' + questionNumber + ': ' + ($("#tbQuestion").val()) + '</p>');
+            $('#q' + questionNumber).append('<textarea style="width:90%" id="q' + questionNumber + '" style="resize:none;width:100%">' +
+                'Enter Answer Here</textarea>');
             break;
         case "chkForm":
             $('#survey').append('<div class="question" id="q' + questionNumber + '"></div>');
-            $('#q' + questionNumber).append('<p>Question ' + questionNumber + ': ' + ($("#chkQuestion").val()) + '</p>');
-            var i;
+            $('#q' + questionNumber).append('<button style="position:absolute;right:5%;border:none;background-color:transparent"' +
+                ' onclick="openOptions(questionNumber, "c")"><i id="q'+questionNumber+'opts" class="fa fa-cog" ' +
+                'style="color:green;font-size: 20px"></i></button>');
+            $('#q' + questionNumber).append('<p style="text-align:left">Question ' + questionNumber + ': ' + ($("#chkQuestion").val()) + '</p>');
             for (i = 1; i < cNum; i++) {
                 $('#q' + questionNumber).append('<input type="checkbox">' + $('#ctb' + i).val() + '</input>')
             }
-            questionNumber++;
             break;
         case "rdoForm":
             $('#survey').append('<div class="question" id="q' + questionNumber + '"></div>');
-            $('#q' + questionNumber).append('<p>Question ' + questionNumber + ': ' + ($("#rdoQuestion").val()) + '</p>');
-            var i;
+            $('#q' + questionNumber).append('<button style="position:absolute;right:5%;border:none;background-color:transparent"' +
+                ' onclick="openOptions(questionNumber,"r")"><i id="q'+questionNumber+'opts" class="fa fa-cog" ' +
+                'style="color:green;font-size: 20px"></i></button>');
+            $('#q' + questionNumber).append('<p style="text-align:left">Question ' + questionNumber + ': ' + ($("#rdoQuestion").val()) + '</p>');
             for (i = 1; i < rNum; i++) {
                 $('#q' + questionNumber).append('<input name="q' + questionNumber + '"type="radio">' + $('#rtb' + i).val() + '</input>')
             }
-            questionNumber++;
+
             break;
         case "ddForm":
             $('#survey').append('<div class="question" id="q' + questionNumber + '"></div>');
-            $('#q' + questionNumber).append('<p>Question ' + questionNumber + ': ' + ($("#ddQuestion").val()) + '</p>');
-            var i;
+            $('#q' + questionNumber).append('<button style="position:absolute;right:5%;border:none;background-color:transparent"' +
+                ' onclick="openOptions(questionNumber,"d")"><i id="q'+questionNumber+'opts" class="fa fa-cog" ' +
+                'style="color:green;font-size: 20px"></i></button>');
+            $('#q' + questionNumber).append('<p style="text-align:left">Question ' + questionNumber + ': ' + ($("#ddQuestion").val()) + '</p>');
+            var str = "";
+            str = str + '<select style="width:30%">';
             for (i = 1; i < dNum; i++) {
-                $('#q' + questionNumber).append('<input type="dropdown">' + $('#dtb' + i).val() + '</input>')
+                str = str + '<option value="' + $('#dtb' + i).val() + '">' + $('#dtb' + i).val() + '' +
+                    '</input>';
             }
-            questionNumber++;
+            str = str + '</select>';
+            $('#q' + questionNumber).append(str);
+            break;
+    }
+    questionNumber++;
+    $('#' + divName).toggle();
+    activeToolOption = "";
+}
+
+function openOptions(qNum, qType){
+    switch (qType){
+        case "s": //st form options
+            addToSurvey("stForm", "sTextOption");
+            break;
+        case "t": //tb form
+            $("#q"+qNum).attr("background-color", "black");
+            break;
+        case "c": //chk form
+            $("#q"+qNum).attr("background-color", "black");
+            break;
+        case "r": //rdo form
+            $("#q"+qNum).attr("background-color", "black");
+            break;
+        case "d": //dd form
+            $("#q"+qNum).attr("background-color", "black");
             break;
     }
 }
-
 //TODO
-// change dropdown menu addition
 // add functionality to other sliders

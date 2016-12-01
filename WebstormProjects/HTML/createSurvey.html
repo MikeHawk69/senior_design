@@ -5,20 +5,20 @@
     <title>Create a Survey</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <style src="createSurvey.css">@import "createSurvey.css";</style>
-    <script src="createSurvey.js"></script>
-
+    <style>@import "../CSS/createSurvey.css";</style>
+    <script src="../JS/createSurvey.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
 <!-- TODO: set logout and settings to right side-->
 <nav class="directory">
     <div>
-        <a href="#" class="nav">Home</a>
-        <a href="#" class="nav">Products</a>
-        <a href="#" class="nav">Surveys</a>
-        <a href="#" class="nav">Data</a>
-        <a href="#" class="nav">Settings</a>
+        <a href="#" class="logo" style="padding:0"><img style="position:relative; top:0" src="../Images/Surv-it-Logo.png" height="40" width="100"/></a>
+        <a href="Home.html" class="nav">Home</a>
+        <a href="Products.html" class="nav">Products</a>
+        <a href="Data.html" class="nav">Data</a>
+        <a href="Surveys.html" class="nav">Surveys</a>
         <a href="#" class="nav">Logout</a>
     </div>
 </nav>
@@ -43,20 +43,20 @@
     <div class="toolkit" id="demographics">
         <form style="text-align: center;margin:0;padding:10px" id="DemoForm">
             <p> Do you wish to inquire about the customer's age?
-                <input name="productInfo" type="radio">yes</input>
-                <input name="productInfo" type="radio" checked="checked">no</input></p>
+                <input name="age" type="radio">yes</input>
+                <input name="age" type="radio" checked="checked">no</input></p>
             <p> Do you wish to inquire about the customer's gender?
-                <input name="productInfo" type="radio">yes</input>
-                <input name="productInfo" type="radio" checked="checked">no</input></p>
+                <input name="gender" type="radio">yes</input>
+                <input name="gender" type="radio" checked="checked">no</input></p>
             <p> Do you wish to inquire about the customer's ethnicity?
-                <input name="productInfo" type="radio">yes</input>
-                <input name="productInfo" type="radio" checked="checked">no</input></p>
+                <input name="race" type="radio">yes</input>
+                <input name="race" type="radio" checked="checked">no</input></p>
             <p> Do you wish to inquire about the customer's religion?
-                <input name="productInfo" type="radio">yes</input>
-                <input name="productInfo" type="radio" checked="checked">no</input></p>
+                <input name="religion" type="radio">yes</input>
+                <input name="religion" type="radio" checked="checked">no</input></p>
             <p> Do you wish to inquire about the customer's location?
-                <input name="productInfo" type="radio">yes</input>
-                <input name="productInfo" type="radio" checked="checked">no</input></p>
+                <input name="location" type="radio">yes</input>
+                <input name="location" type="radio" checked="checked">no</input></p>
             <button type="button" class = "optionButton" name="">Apply</button>
         </form>
     </div>
@@ -106,7 +106,7 @@
                 Question:
                 <input id="stQuestion" style="width:98%" type="text" value="Input question here."/>
                 <div class="horSpace"></div>
-                <input type="button" onclick="addToSurvey('stForm')" value="Add" class="optionButton"/>
+                <input type="button" onclick="addToSurvey('stForm', 'sTextOption')" value="Add" class="optionButton"/>
                 <input type="reset" class="optionButton"/>
             </form>
         </div>
@@ -117,7 +117,7 @@
                 Question:
                 <input id="tbQuestion" style="width:98%" type="text" value="Input question here."/>
                 <div class="horSpace"></div>
-                <input type="button" onclick="addToSurvey('tbForm')" value="Add" class="optionButton"/>
+                <input type="button" onclick="addToSurvey('tbForm', 'tbOption')" value="Add" class="optionButton"/>
                 <input type="reset" class="optionButton"/>
             </form>
         </div>
@@ -133,7 +133,7 @@
                 <div class="horSpace"></div>
                 <input id=rtb1 style="width:98%" type="text" value="Option 1"/>
                 <div class="horSpace"></div>
-                <input id="rdoAdd" type="button" onclick="addToSurvey('rdoForm')" value="Add" class="optionButton"/>
+                <input id="rdoAdd" type="button" onclick="addToSurvey('rdoForm', 'radioOption')" value="Add" class="optionButton"/>
                 <input type="button" onclick="resetPan('rdoForm')" class="optionButton" value="Reset"/>
             </form>
         </div>
@@ -149,7 +149,7 @@
                 <div class="horSpace"></div>
                 <input id=ctb1 style="width:98%" type="text" value="Option 1"/>
                 <div class="horSpace"></div>
-                <input id="chkAdd" type="button" class="optionButton" onclick="addToSurvey('chkForm')" value="Add"/>
+                <input id="chkAdd" type="button" class="optionButton" onclick="addToSurvey('chkForm', 'checkOption')" value="Add"/>
                 <input type="button" onclick="resetPan('chkForm')" class="optionButton" value="Reset"/>
             </form>
         </div>
@@ -166,7 +166,7 @@
                 <div class="horSpace"></div>
                 <input id=dtb1 style="width:98%" type="text" value="Option 1"/>
                 <div class="horSpace"></div>
-                <input id="ddAdd" type="button" class="optionButton" onclick="addToSurvey('ddForm')" value="Add"/>
+                <input id="ddAdd" type="button" class="optionButton" onclick="addToSurvey('ddForm', 'ddOption')" value="Add"/>
                 <input type="button" onclick="resetPan('ddForm')" class="optionButton" value="Reset"/>
             </form>
         </div>
