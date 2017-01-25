@@ -1,0 +1,10 @@
+create database SURVEY;
+
+use SURVEY;
+
+create table USERTABLE (
+	username varchar(50),
+    pass varchar(50),
+    CID int,
+    admin int(1)
+)
