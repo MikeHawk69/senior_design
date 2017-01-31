@@ -2,24 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Data</title>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <style>@import "../CSS/dataStyle.css";</style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <title>Products</title>
 </head>
 <body>
 
-
-<nav class="directory">
-    <div>
-        <a href="#" class="logo" style="padding:0"><img style="position:relative; top:0" src="../Images/Surv-it-Logo.png" height="40" width="100"/></a>
-        <a href="Home.html" class="nav">Home</a>
-        <a href="Products.html" class="nav">Products</a>
-        <a href="Data.html" class="nav">Data</a>
-        <a href="Surveys.html" class="nav">Surveys</a>
-        <a href="#" class="nav">Logout</a>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="Surv-It" src="../Images/Surv-it-Logo.png" height="40" width="80"/>
+            </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="Home.html">Data</a></li>
+            <li><a href="Products.html">Products</a></li>
+            <li class="active"><a href="Data.html">Data</a></li>           <!--only part that changes-->
+            <li><a href="Surveys.html">Surveys</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
     </div>
 </nav>
 
@@ -68,6 +74,9 @@
         <div style="color:white;margin-left:5px;border-radius:10px;padding:5px;float:left;background-color: green;height:95%;width:35%">Data</div>
     </div>
 </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </body>
 </html>
