@@ -4,7 +4,47 @@ use SURVEY;
 
 create table USERTABLE (
 	username varchar(50),
+	email varchar(50),
     pass varchar(50),
     CID int,
-    admin int(1)
-)
+    admin int(1),
+    PRIMARY KEY(username)
+);
+
+create table COMPANY (
+    CID int,
+    name varchar(50),
+    PRIMARY KEY(CID)
+);
+
+create table PRODUCT (
+    PID int,
+    CID int,
+    PRIMARY KEY(PID)
+);
+
+//Fields will need ot be added to account for choices
+create table SURVEYS (
+    PID int,
+    SID int,
+    num tinyint,
+    TID int,
+    text varchar(255),
+    PRIMARY KEY(SID)
+);
+
+create table RESULTS (
+    SID int,
+    num int,
+    answer varchar(50),
+    timestamp TIMESTAMP(),
+    PRIMARY KEY(timestamp)
+);
+
+create table TYPES (
+    TID int,
+    type_name varchar(20),
+    answer_type varchar(20),
+    total_type varchar(20),
+    PRIMARY KEY(TID)
+);
