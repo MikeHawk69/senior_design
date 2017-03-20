@@ -1,4 +1,8 @@
-body{margin:0; padding-top: 65px}
+body{
+    margin:0;
+    padding-top: 65px;
+
+}
 div.horSpace {
     height:5px;
     width:100%;
@@ -35,4 +39,14 @@ a.nav {
 }
 a.nav:hover {
     background-color: steelblue;
+}
+#jumbo {
+    padding-top: 3px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#cont1 {
+    padding-right: 80px;
+
 }
